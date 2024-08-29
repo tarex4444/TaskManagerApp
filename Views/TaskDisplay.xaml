@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="TaskManagerApp.Views.TaskDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TaskManagerApp.Views"
+             xmlns:components="clr-namespace:TaskManagerApp.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Nazwa Usera" Margin="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="35" />
+            <Button Grid.Column="1" Content="Add Task" Margin="20" MaxWidth="200" Background="AliceBlue" DataContext="{Binding AddTask}"/>
+            <Button Grid.Column="2" Content="Logout" Margin="20" MaxWidth="200" Background="AliceBlue" DataContext="{Binding Logout}"/>
+            <Border BorderBrush="Black"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <components:TasksListing Margin="30" DataContext="{Binding TasksListingViewModel}"/>
+        </Grid>
+    </Grid>
+</UserControl>
